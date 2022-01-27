@@ -4,12 +4,16 @@
   "description": "Basic project for CR",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "node ./dist/index.js"
   },
   "keywords": [],
   "author": "Gabriel Trujillo <gabriel@nodesource.com>",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "cylinder": "^0.0.3"
+  },
   "devDependencies": {
     "@types/node": "^17.0.12",
     "typescript": "^4.5.5"
