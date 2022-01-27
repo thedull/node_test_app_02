@@ -12,7 +12,9 @@
   "author": "Gabriel Trujillo <gabriel@nodesource.com>",
   "license": "MIT",
   "dependencies": {
-    "cylinder": "^0.0.3"
+    "@types/express": "^4.17.13",
+    "cylinder": "^0.0.3",
+    "express": "^4.17.2"
   },
   "devDependencies": {
     "@types/node": "^17.0.12",

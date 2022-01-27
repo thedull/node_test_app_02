@@ -1,15 +1,24 @@
 import createCylinder from 'cylinder';
+import express from 'express';
 
-let diameter: number;
-let depth: number;
+const app = express();
+const PORT = 3001;
 
-diameter = +process.argv[2] || 1;
-depth = +process.argv[3] || 2;
+app.get('/cylinder', async (req, res) => {
+    const diameter: number = +(req.query?.diameter?.toString() || 1);
+    const depth: number = +(req.query.depth?.toString() || 1);
 
-const cylinder1 = createCylinder(diameter, depth);
+    const cylinder = createCylinder(diameter, depth);
 
-console.log('Diameter: %d', cylinder1.diameter);
-console.log('Depth: %d', cylinder1.depth);
-console.log('Round face area: %d', cylinder1.area());
-console.log('Volume: %d', cylinder1.volume());
+    const data = {
+        diameter: cylinder.diameter,
+        depth: cylinder.depth,
+        area: cylinder.area(),
+        volume: cylinder.volume()
+    }
 
+    res.setHeader('Content-type', 'application/json');
+    return res.status(200).send(data);
+});
+
+app.listen(PORT, () => { console.log(`Server running on http://localhost:${PORT}`) });
